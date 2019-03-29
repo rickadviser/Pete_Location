@@ -15,6 +15,7 @@ module.exports = {
   attractions: {
     getAll: (req, res) => {
       try {
+        console.log('Get All Attractions')
         models.attractions.getAll().then((results) => {
           res.json(results);
         });
