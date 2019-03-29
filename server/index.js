@@ -1,18 +1,13 @@
-const PORT = 3000;
-
 const express = require('express');
+const router = require('./routes');
+const CONFIG = require('./config');
+
 const app = express();
 
+app.use(express.json());
+app.use(express.static(__dirname.concat('/../public')));
+app.use('/location', router);
 
-app.use(express.static(__dirname + '/../public'));
-
-app.get('/location', (req, res) => {
-  console.log('Request received', req.url);
-  res.send('Request received');
-
+app.listen(CONFIG.APP.PORT, () => {
+  console.log('Listening on port:', CONFIG.APP.PORT);
 });
-
-app.listen(PORT, () => {
-  console.log('Listening on port:', PORT);
-
-})
