@@ -1,6 +1,6 @@
 const CONFIG = {
   APP: {
-    PORT: 3000,
+    PORT: 3003,
   },
   DB: {
     HOST: 'localhost',
@@ -8,6 +8,9 @@ const CONFIG = {
     NAME: 'db',
     USER: 'root',
     PASSWORD: '',
+  },
+  GOOGLEMAPS: {
+    KEY: 'AIzaSyApGWA1NEDnW8jiZq3pTgo7hapY-9VkUwk',
   },
 };
 

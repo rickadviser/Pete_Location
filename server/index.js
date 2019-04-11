@@ -4,8 +4,6 @@ const CONFIG = require('./config');
 
 const app = express();
 
-//need to add additional routes for locations
-
 app.use(express.json());
 app.use(express.static(__dirname.concat('/../public')));
 app.use('/location', router);

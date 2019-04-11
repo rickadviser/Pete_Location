@@ -6,8 +6,8 @@ CREATE TABLE `TripAdvisor_Locations`.`Hotels` (
   `City` VARCHAR(45) NULL,
   `State` VARCHAR(45) NULL,
   `PostalCode` INT NULL,
-  `Latitude` Decimal(5,2) NULL,
-  `Longitude` Decimal(5,2) NULL,
+  `Latitude` Decimal(5,5) NULL,
+  `Longitude` Decimal(5,5) NULL,
   `NearestAirport` VARCHAR(45) NULL,
   `NearestAirportDistance` INT NULL,
   PRIMARY KEY (`id`));
@@ -24,6 +24,8 @@ CREATE TABLE `TripAdvisor_Locations`.`Restaurants` (
   `State` VARCHAR(45) NULL,
   `PostalCode` INT NULL,
   `DistanceFromHotel` DECIMAL(3,1) NULL,
+  `Latitude` Decimal(5,6) NULL,
+  `Longitude` Decimal(5,6) NULL,
   PRIMARY KEY (`id`));
 
   CREATE TABLE `TripAdvisor_Locations`.`Attractions` (
@@ -37,6 +39,8 @@ CREATE TABLE `TripAdvisor_Locations`.`Restaurants` (
   `State` VARCHAR(45) NULL,
   `PostalCode` INT NULL,
   `DistanceFromHotel` DECIMAL(3,1) NULL,
+  `Latitude` Decimal(5,6) NULL,
+  `Longitude` Decimal(5,6) NULL,
   PRIMARY KEY (`id`));
 
 
