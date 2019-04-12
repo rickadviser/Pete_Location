@@ -57,7 +57,7 @@ class Map extends React.Component {
 
       window.google.maps.event.addListener(marker, 'click', ((marker, i) => {
         return () => {
-          infowindow.setContent(location[i][3] + ':' locations[i][0]);
+          infowindow.setContent(locations[i][0]);
           infowindow.open(map, marker);
         };
       })(marker, i));
