@@ -57,7 +57,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="header">Location</h2>
+        <h2 className="headerLocation">Location</h2>
         <Map restaurants={this.state.restaurants} />
         <div className="locationsContainer">
           <div className="hotelInfoContainer"><HotelInfo hotels={this.state.hotels} /></div>

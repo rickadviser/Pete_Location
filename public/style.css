@@ -1,80 +1,93 @@
-.header {
-  font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
-  color: #000a12;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 18px;
-  font-weight: 700;
-}
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
 
-.mapContainer {
-  height: 241px;
-  width: 801px;
-}
+ ​ body {
+   background-color: #f2f2f2;
+   color: #2c2c2c;
+   font-family: Arial, Tahoma, sans-serif;
+   overflow-y: scroll;
+ }
 
-.hotelInfoContainer {
-  height: 300px;
-  width: 250px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+ .headerLocation {
+   font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+   color: #000a12;
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   font-size: 18px;
+   font-weight: 700;
+ }
 
-.Contact {
-  font-weight: 700;
-}
+ .mapContainer {
+   height: 241px;
+   width: 801px;
+ }
 
-.walkingScoreContainer {
-  display: flex;
-}
+ .hotelInfoContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
-.walkingScore {
-  font-size: 42px;
-  font-weight: 700;
-  color: #078171;
-}
+ .Contact {
+   font-weight: 700;
+ }
 
-.walkingScore1 {
-  font-size: 18px;
-  font-weight: 100;
-  color: #078171;
-}
+ .walkingScoreContainer {
+   display: flex;
+ }
 
-.walkingScore2 {
-  font-size: 12px;
-  font-weight: 100;
-  color: black;
-}
+ .walkingScore {
+   font-size: 42px;
+   font-weight: 700;
+   color: #078171;
+ }
 
-.restaurantHeaderContainer {
-  display: flex;
-}
+ .walkingScore1 {
+   font-size: 18px;
+   font-weight: 100;
+   color: #078171;
+ }
 
-.restaurantsContainer {
-  height: 300px;
-  width: 250px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+ .walkingScore2 {
+   font-size: 12px;
+   font-weight: 100;
+   color: black;
+ }
 
-.restaurantCount {
-  font-size: 42px;
-  font-weight: 700;
-  color: red;
-}
+ .restaurantHeaderContainer {
+   display: flex;
+ }
 
-.attractionsContainer {
-  height: 300px;
-  width: 250px;
-  font-family: Arial, Helvetica, sans-serif;
-}
+ .restaurantsContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
 
-.attractionsCount {
-  font-size: 42px;
-  font-weight: 700;
-  color: blue;
-}
+ .restaurantCount {
+   font-size: 42px;
+   font-weight: 700;
+   color: red;
+ }
 
-.locationsContainer {
-  height: 500px;
-  width: 750px;
-  display: flex;
-}
+ .attractionsContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .attractionsCount {
+   font-size: 42px;
+   font-weight: 700;
+   color: blue;
+ }
+
+ .locationsContainer {
+   height: 500px;
+   width: 750px;
+   display: flex;
+ }

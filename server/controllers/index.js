@@ -39,6 +39,14 @@ module.exports = {
           });
         });
       });
+      models.attractions.getAll().then((results) => {
+        results.forEach((attraction) => {
+          googleMaps.updateDistanceMatrix('origins', attraction.Addr1 + ', ' + attraction.City + ', ' + attraction.State).then((distance) => {
+            console.log(attraction.Name, distance);
+            models.attractions.updateDistanceToHotel(attraction.id, distance);
+          });
+        });
+      });
       res.send('Success');
     },
     geocode: (req, res) => {
@@ -47,6 +55,14 @@ module.exports = {
           console.log(restaurant.Addr1 + restaurant.City);
           googleMaps.geoEncode(restaurant.Addr1 + ', ' + restaurant.City + ', ' + restaurant.State).then((location) => {
             models.restaurants.updateLatLong(restaurant.id, location.lat, location.lng);
+          });
+        });
+      });
+      models.attractions.getAll().then((results) => {
+        results.forEach((attraction) => {
+          console.log(attraction.Addr1 + attraction.City);
+          googleMaps.geoEncode(attraction.Addr1 + ', ' + attraction.City + ', ' + attraction.State).then((location) => {
+            models.attractions.updateLatLong(attraction.id, location.lat, location.lng);
           });
         });
       });

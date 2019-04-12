@@ -15,7 +15,7 @@ class Restaurants extends React.Component {
           <div className="restaurantCount">
             {this.props.restaurants.length}
           </div>
-          <div className="restaurantHeader">Restaurants</div>
+          <div className="restaurantHeader"></div>
         </span>
         <span className="Contact">Nearby Restaurants</span>
         {this.props.restaurants.map(restaurant => {

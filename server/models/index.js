@@ -50,5 +50,24 @@ module.exports = {
         resolve(results);
       });
     }),
+    updateDistanceToHotel: (attractionId, distance) => new Promise((resolve, reject) => {
+      const queryString = `UPDATE attractions SET DistanceFromHotel = ${distance} WHERE id = ${attractionId}`;
+      db.query(queryString, (error, results) => {
+        if (error) {
+          reject(error);
+        }
+        resolve(results);
+      });
+    }),
+    updateLatLong: (attractionId, Lat, Long) => new Promise((resolve, reject) => {
+      const queryString = `UPDATE attractions SET Latitude = ${Lat}, Longitude = ${Long} WHERE id = ${attractionId}`;
+      console.log(queryString);
+      db.query(queryString, (error, results) => {
+        if (error) {
+          reject(error);
+        }
+        resolve(results);
+      });
+    }),
   },
 };
