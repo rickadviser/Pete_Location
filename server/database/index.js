@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-
 const CONFIG = require('../config');
 
 const connection = mysql.createConnection({
@@ -9,6 +8,15 @@ const connection = mysql.createConnection({
   database: CONFIG.DB.DATABASE,
 });
 
-connection.connect();
+//connection.connect();
+
+connection.connect((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Connected to the MySQL server');
+  }
+});
+
 
 module.exports = connection;

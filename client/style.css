@@ -1,0 +1,87 @@
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+
+ ​ .headerLocation {
+   font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+   color: #000a12;
+   -webkit-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   font-size: 18px;
+   font-weight: 700;
+ }
+
+ .mapContainer {
+   height: 241px;
+   width: 801px;
+ }
+
+ .hotelInfoContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .Contact {
+   font-weight: 700;
+ }
+
+ .walkingScoreContainer {
+   display: flex;
+ }
+
+ .walkingScore {
+   font-size: 42px;
+   font-weight: 700;
+   color: #078171;
+ }
+
+ .walkingScore1 {
+   font-size: 18px;
+   font-weight: 100;
+   color: #078171;
+ }
+
+ .walkingScore2 {
+   font-size: 12px;
+   font-weight: 100;
+   color: black;
+ }
+
+ .restaurantHeaderContainer {
+   display: flex;
+ }
+
+ .restaurantsContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .restaurantCount {
+   font-size: 42px;
+   font-weight: 700;
+   color: red;
+ }
+
+ .attractionsContainer {
+   height: 300px;
+   width: 250px;
+   font-family: Arial, Helvetica, sans-serif;
+ }
+
+ .attractionsCount {
+   font-size: 42px;
+   font-weight: 700;
+   color: blue;
+ }
+
+ .locationsContainer {
+   height: 500px;
+   width: 750px;
+   display: flex;
+   font-family: Arial;
+ }

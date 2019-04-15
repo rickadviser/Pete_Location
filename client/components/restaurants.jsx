@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../style.css';
 
 class Restaurants extends React.Component {
   constructor(props) {
@@ -11,20 +12,22 @@ class Restaurants extends React.Component {
 
     return (
       <div>
-        <span className="restaurantHeaderContainer">
-          <div className="restaurantCount">
+        <span className={styles.restaurantHeaderContainer}>
+          <div className={styles.restaurantCount}>
             {this.props.restaurants.length}
           </div>
-          <div className="restaurantHeader"></div>
-        </span>
-        <span className="Contact">Nearby Restaurants</span>
-        {this.props.restaurants.map(restaurant => {
-          count = count + 1;
-          if (count < 5) {
-            return (<div>{restaurant.Name}</div>)
-          }
-        })}
-      </div>
+          <div className={styles.restaurantHeader}></div>
+        </span >
+        <span className={styles.Contact}>Nearby Restaurants</span>
+        {
+          this.props.restaurants.map(restaurant => {
+            count = count + 1;
+            if (count < 5) {
+              return (<div key={restaurant.id}>{restaurant.Name}</div>)
+            }
+          })
+        }
+      </div >
     );
   }
 }

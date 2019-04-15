@@ -5,6 +5,8 @@ import Attractions from './components/attractions';
 import HotelInfo from './components/hotelinfo/index';
 import Map from './components/map';
 import Restaurants from './components/restaurants';
+import styles from './style.css';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -29,14 +31,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3003/location/attractions')
+    fetch('location/attractions')
       .then(response => response.json())
       .then((data) => {
         this.setState({
           attractions: data,
         });
       });
-    fetch('http://localhost:3003/location/restaurants')
+    fetch('location/restaurants')
       .then(response => response.json())
       .then((data) => {
         this.setState({
@@ -44,7 +46,7 @@ class App extends React.Component {
         });
         // console.log('restaurants', this.state.restaurants);
       });
-    fetch('http://localhost:3003/location/hotels')
+    fetch('location/hotels')
       .then(response => response.json())
       .then((data) => {
         this.setState({
@@ -57,9 +59,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="headerLocation">Location</h2>
+        <h2 className={styles.headerLocation}>Location</h2>
         <Map restaurants={this.state.restaurants} />
-        <div className="locationsContainer">
+        <div className={styles.locationsContainer}>
           <div className="hotelInfoContainer"><HotelInfo hotels={this.state.hotels} /></div>
           <div className="restaurantsContainer"><Restaurants restaurants={this.state.restaurants} /></div>
           <div className="activitiesContainer"><Attractions attractions={this.state.attractions} /></div>

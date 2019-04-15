@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../style.css';
 
 
 class Attractions extends React.Component {
@@ -7,15 +8,15 @@ class Attractions extends React.Component {
   render() {
     let count = 0;
     return (
-      <div className="attractionsContainer">
+      <div className={styles.attractionsContainer}>
         <span>
-          <div className="attractionsCount">{this.props.attractions.length}</div>
-          <div className="Contact">Nearby Attractions</div>
+          <div className={styles.attractionsCount}>{this.props.attractions.length}</div>
+          <div className={styles.Contact}>Nearby Attractions</div>
         </span>
         {this.props.attractions.map(attraction => {
           count++;
           if (count < 5) {
-            return (<div>{attraction.Name}</div>)
+            return (<div key={attraction.id}>{attraction.Name}</div>)
           }
         })}
       </div>
