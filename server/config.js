@@ -9,7 +9,7 @@ const CONFIG = {
     PASSWORD: 'pete1234',
   },
   GOOGLEMAPS: {
-    KEY: 'AIzaSyApGWA1NEDnW8jiZq3pTgo7hapY-9VkUwk',
+    KEY: '###GOOGLE MAPS KEY####',
   },
 };
 
