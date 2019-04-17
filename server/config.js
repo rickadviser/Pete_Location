@@ -14,12 +14,3 @@ const CONFIG = {
 };
 
 module.exports = CONFIG;
-
-
-
-// DB: {
-//   HOST: 'localhost',
-//   DATABASE: 'TripAdvisor_Locations',
-//   USER: 'root',
-//   PASSWORD: '',
-// },
