@@ -58,13 +58,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2 className={styles.headerLocation}>Location</h2>
+
+      <div className={styles.locationWrapper}>
+        <h2 style={{
+          fontFamily: 'Arial, Tahoma, sans-serif',
+          color: '#000a12',
+          flex: 1,
+          fontSize: '28px',
+          fontWeight: 700,
+        }}>Locations</h2>
+
         <Map restaurants={this.state.restaurants} />
         <div className={styles.locationsContainer}>
-          <div className="hotelInfoContainer"><HotelInfo hotels={this.state.hotels} /></div>
-          <div className="restaurantsContainer"><Restaurants restaurants={this.state.restaurants} /></div>
-          <div className="activitiesContainer"><Attractions attractions={this.state.attractions} /></div>
+          <div className={styles.hotelInfoContainer}><HotelInfo hotels={this.state.hotels} /></div>
+          <div className={styles.restaurantsContainer}><Restaurants restaurants={this.state.restaurants} /></div>
+          <div className={styles.activitiesContainer}><Attractions attractions={this.state.attractions} /></div>
         </div>
       </div>
     );

@@ -1,87 +1,92 @@
- *,
- *::before,
- *::after {
-   box-sizing: border-box;
- }
+.mapContainer {
+  height: 241px;
+  width: 801px;
+}
 
- ​ .headerLocation {
-   font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
-   color: #000a12;
-   -webkit-flex: 1;
-   -ms-flex: 1;
-   flex: 1;
-   font-size: 18px;
-   font-weight: 700;
- }
+.hotelInfoContainer {
+  width: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
- .mapContainer {
-   height: 241px;
-   width: 801px;
- }
+.Contact {
+  font-weight: 700;
+}
 
- .hotelInfoContainer {
-   height: 300px;
-   width: 250px;
-   font-family: Arial, Helvetica, sans-serif;
- }
+.walkingScoreContainer {
+  display: flex;
+  flex-direction: column;
+}
 
- .Contact {
-   font-weight: 700;
- }
+.walkingScore {
+  font-size: 42px;
+  font-weight: 700;
+  color: #078171;
+}
 
- .walkingScoreContainer {
-   display: flex;
- }
+.walkingScore1 {
+  font-size: 18px;
+  font-weight: 100;
+  color: #078171;
+}
 
- .walkingScore {
-   font-size: 42px;
-   font-weight: 700;
-   color: #078171;
- }
+.walkingScore2 {
+  font-size: 12px;
+  font-weight: 100;
+  color: black;
+}
 
- .walkingScore1 {
-   font-size: 18px;
-   font-weight: 100;
-   color: #078171;
- }
+.restaurantHeaderContainer {
+  display: flex;
+}
 
- .walkingScore2 {
-   font-size: 12px;
-   font-weight: 100;
-   color: black;
- }
+.restaurantsContainer {
+  width: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
- .restaurantHeaderContainer {
-   display: flex;
- }
+.restaurantCount {
+  font-size: 42px;
+  font-weight: 700;
+  color: #ff6500;
+}
 
- .restaurantsContainer {
-   height: 300px;
-   width: 250px;
-   font-family: Arial, Helvetica, sans-serif;
- }
+.attractionsContainer {
+  width: 250px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
- .restaurantCount {
-   font-size: 42px;
-   font-weight: 700;
-   color: red;
- }
+.attractionsCount {
+  font-size: 42px;
+  font-weight: 700;
+  color: #006699;
+}
 
- .attractionsContainer {
-   height: 300px;
-   width: 250px;
-   font-family: Arial, Helvetica, sans-serif;
- }
+.locationsContainer {
+  display: flex;
+  font-family: Arial;
+}
 
- .attractionsCount {
-   font-size: 42px;
-   font-weight: 700;
-   color: blue;
- }
+​ h2 {
+  font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+  color: #000a12;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 28px !important;
+  font-weight: 700;
+}
 
- .locationsContainer {
-   height: 500px;
-   width: 750px;
-   display: flex;
-   font-family: Arial;
- }
+​ .wrapper2 {
+  font-family: Arial, Tahoma, "Bitstream Vera Sans", sans-serif;
+  color: #000a12;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 28px !important;
+  font-weight: 700;
+}
+
+.locationWrapper {
+  width: 812px;
+  background: white;
+}
