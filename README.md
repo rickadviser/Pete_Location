@@ -1,3 +1,11 @@
+Fetch locations:
+-map.jsx-componentdidmount: call name/latitude/longitude/Restaurant or Attraction
+-'/location/restaurants'
+-'/location/attractions'
+-index.jsx: hotels arr restaurants arr and attractions arr
+-'location/attractions'
+-'location/restaurants'
+-'location/hotels'
 Routes:
 GET:
 '/restaurants'- array of restaurant objects
@@ -27,7 +35,7 @@ DistanceFromHotel: DECIMAL(3,1) ,
 Latitude: Decimal(5,6) ,
 Longitude: Decimal(5,6) ,
 }]
-'/hotels' - Specific hotel by ID
+'/hotels' - Specific hotel by ID---keep
 {
 WalkableScore: INT ,
 Addr1: string,
