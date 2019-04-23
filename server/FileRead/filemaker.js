@@ -3,7 +3,7 @@ const fs = require('fs');
 
 faker.seed(223);
 const randomNum = number => Math.floor(Math.random() * number);
-const fileWriter = (fileName = 'areas') => {
+const fileWriter = (fileName = 'hotels') => {
   const attractionType = ['attraction', 'restaurant'];
   let rows = '\n';
   let columnNames = [];
@@ -30,27 +30,28 @@ const fileWriter = (fileName = 'areas') => {
   for (let i = 1; i < 10000001; i++) {
     columnNames.forEach((columnTitle) => {
       if (columnTitle === 'name') {
-        rows += faker.company.companyName();
+        rows += `${faker.company.companyName()},`;
       } else if (columnTitle === 'type') {
-        rows += attractionType[randomNum(2)];
+        rows += `${attractionType[randomNum(2)]},`;
       } else if (columnTitle === 'latitude') {
-        rows += faker.address.latitude();
+        rows += `${faker.address.latitude()},`;
       } else if (columnTitle === 'longitude') {
-        rows += faker.address.longitude();
+        rows += `${faker.address.longitude()},`;
       } else if (columnTitle === 'postalcode') {
-        rows += faker.address.zipCode();
+        rows += `${faker.address.zipCode()},`;
       } else if (columnTitle === 'addr1' || columnTitle === 'nearestairport') {
-        rows += faker.address.streetAddress();
+        rows += faker.address.streetAddress()+',';
       } else if (columnTitle === 'city') {
-        rows += faker.address.city();
+        rows += `${faker.address.city()},`;
       } else if (columnTitle === 'state') {
-        rows += faker.address.state();
+        rows += `${faker.address.state()},`;
       } else if (columnTitle === 'walkablescore' || columnTitle === 'nearestairportdistance') {
-        rows += randomNum(100);
+        rows += `${randomNum(100)},`;
       } else if (columnTitle === 'phone') {
-        rows += faker.phone.phoneNumber();
+        rows += `${faker.phone.phoneNumber()},`;
       }
     });
+    rows = rows.slice(0, rows.length - 1);
     rows += '\n';
     if (i % 1000 === 0) {
       fs.appendFileSync(`./${fileName}.csv`, rows);
