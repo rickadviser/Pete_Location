@@ -29,7 +29,6 @@ const bulkWriteHandler = async (fileName, dbName) => {
     writes.push({ insertOne: { document: obj } });
     if (i % 1000 === 0) {
       await saver(writes);
-      // console.log(writes.length)
       writes = [];
     }
   }
@@ -37,5 +36,6 @@ const bulkWriteHandler = async (fileName, dbName) => {
 
 (async () => {
   await bulkWriteHandler('../../../FileRead/hotels.csv', 'hotels');
+  await bulkWriteHandler('../../../FileRead/attractions.csv', 'attractions');
   db.close();
 })();
