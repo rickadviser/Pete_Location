@@ -5,33 +5,10 @@
 // eslint-disable-next-line func-names
 const fr = require('../../FileRead/filereader.js');
 // const config = require('../../../knexfile.js')[environment];
-var knex = require('knex')
-var fs = require('fs')
-var copyFrom = require('pg-copy-streams').from
+
 
 exports.seed = (knex, Promise) =>{
-  knex('attractions').client
-		.pool.acquire()
-		.Promise.then(client => {
-			function done (err) {
-				if (err) {
-					console.log(err)
-				}
-				else {
-					console.log('success')
-				}
-				knex.client.pool.release(client)
-			}
-
-			const stream = client.query(copyFrom("COPY attractions(name, latitude, longitude) FROM STDIN"))
-			const fileStream = fs.createReadStream('../../FileRead/AttractionData - Sheet1.csv')
-
-
-			fileStream.on('error', done)
-			stream.on('error', done)
-			stream.on('end', done)
-			fileStream.pipe(stream)
-		})
+  
   // pg.connect((err,client,done)=>{
   //   if(err) throw err;
   //   const query = new QueryStream("COPY attractions(name, latitude, longitude) FROM '../../FileRead/AttractionData - Sheet1.csv' DELIMITER ',' CSV HEADER;");

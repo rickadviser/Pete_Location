@@ -7,12 +7,11 @@ exports.up = function (knex, Promise) {
     table.string('city').notNullable();
     table.string('state').notNullable();
     table.string('phone').notNullable();
-    table.integer('postalcode');
+    table.string('postalcode');
     table.decimal('latitude').notNullable();
     table.decimal('longitude').notNullable();
     table.string('nearestairport').notNullable();
     table.integer('nearestairportdistance');
-    table.integer('areaID');
   });
 };
 
