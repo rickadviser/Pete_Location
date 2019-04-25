@@ -4,7 +4,7 @@ var knex = require('knex')(config);
 var fs = require('fs');
 var copyFrom = require('pg-copy-streams').from;
 
-var fileStreamer = (fileName, dbName, dbCols) =>{
+var fileStreamer = async (fileName, dbName, dbCols) =>{
   knex(dbName).del();
   knex(dbName).client
 		.pool.acquire()
@@ -22,7 +22,6 @@ var fileStreamer = (fileName, dbName, dbCols) =>{
 			}
 
 			const stream = client.query(copyFrom(`COPY ${dbName}(${dbCols}) FROM STDIN DELIMITER ',' CSV HEADER;`))
-			// console.log(`COPY ${dbName}(${dbCols}) FROM STDIN DELIMITER ',' CSV HEADER;`);
 			const fileStream = fs.createReadStream(`${fileName}`)
       fileStream.pipe(stream)
 			.on('error', ()=> done())
@@ -31,6 +30,10 @@ var fileStreamer = (fileName, dbName, dbCols) =>{
 			
 		})
 }
-// fileStreamer('./attractions.csv','attractions','"name", "type", "latitude", "longitude", "postalcode"');
+
 // fileStreamer('./AreasData - Sheet1.csv','areas','addr1, city, postalcode');
-fileStreamer('./hotels.csv','hotels','name, addr1, walkablescore, city, state, phone, postalcode, latitude, longitude, nearestairport, nearestairportdistance');
+(async () => {
+await fileStreamer('./hotels.csv','hotels','name, addr1, walkablescore, city, state, phone, postalcode, latitude, longitude, nearestairport, nearestairportdistance');
+await fileStreamer('./attractions.csv','attractions','name, type, latitude, longitude, postalcode');
+// knex.destroy();
+})()

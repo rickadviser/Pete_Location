@@ -6,6 +6,8 @@ exports.up = function (knex, Promise) {
     table.decimal('latitude').notNullable();
     table.decimal('longitude').notNullable();
     table.string('postalcode').notNullable();
+    table.index('latitude');
+    table.index('longitude');
   });
 };
 

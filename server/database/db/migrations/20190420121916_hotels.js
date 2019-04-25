@@ -1,6 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('hotels', (table) => {
     table.increments();
+    table.index('name');
     table.string('name').notNullable();
     table.string('addr1').notNullable();
     table.integer('walkablescore');

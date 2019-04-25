@@ -7,6 +7,8 @@ exports.up = function (knex, Promise) {
     table.decimal('longitude').notNullable();
     table.string('postalCode').notNullable();
     table.integer('areaID').notNullable();
+    table.index('latitude');
+    table.index('longitude');
   });
 };
 
