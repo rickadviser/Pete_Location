@@ -1,16 +1,15 @@
 import React from 'react';
 
-
 class Map extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    fetch('/location/restaurants')
+    fetch('/location/restaurants/McGlynn, Berge and Harris')
       .then(response => response.json())
       .then((restaurants) => {
-        fetch('/location/attractions')
+        fetch('/location/attractions/McGlynn, Berge and Harris')
           .then(response => response.json())
           .then((attractions) => {
             this.updateMap(restaurants, attractions);
@@ -22,12 +21,22 @@ class Map extends React.Component {
   updateMap(restaurants, attractions) {
     const locations = [];
     restaurants.forEach((restaurant) => {
-      const restaurantLatLong = [restaurant.Name, restaurant.Latitude, restaurant.Longitude, 'Restaurant'];
+      const restaurantLatLong = [
+        restaurant.Name,
+        restaurant.Latitude,
+        restaurant.Longitude,
+        'Restaurant',
+      ];
 
       locations.push(restaurantLatLong);
     });
     attractions.forEach((attraction) => {
-      const restaurantLatLong = [attraction.Name, attraction.Latitude, attraction.Longitude, 'Attraction'];
+      const restaurantLatLong = [
+        attraction.Name,
+        attraction.Latitude,
+        attraction.Longitude,
+        'Attraction',
+      ];
 
       locations.push(restaurantLatLong);
     });
@@ -41,8 +50,12 @@ class Map extends React.Component {
 
     let marker;
     let i;
-    const blueImage = new window.google.maps.MarkerImage('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-    const redImage = new window.google.maps.MarkerImage('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+    const blueImage = new window.google.maps.MarkerImage(
+      'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+    );
+    const redImage = new window.google.maps.MarkerImage(
+      'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+    );
 
     for (i = 0; i < locations.length; i += 1) {
       let image = redImage;
@@ -55,20 +68,19 @@ class Map extends React.Component {
         icon: image,
       });
 
-      window.google.maps.event.addListener(marker, 'click', ((marker, i) => {
-        return () => {
+      window.google.maps.event.addListener(
+        marker,
+        'click',
+        ((marker, i) => () => {
           infowindow.setContent(locations[i][0]);
           infowindow.open(map, marker);
-        };
-      })(marker, i));
+        })(marker, i),
+      );
     }
   }
 
   render() {
-
-    return (
-      <div style={{ width: 700, height: 400 }} id="map" />
-    );
+    return <div style={{ width: 700, height: 400 }} id="map" />;
   }
 }
 

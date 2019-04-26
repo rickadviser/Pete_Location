@@ -36,10 +36,10 @@ const bulkWriteHandler = async (fileName, dbName) => {
 
 (async () => {
   await bulkWriteHandler('../../../FileRead/hotels.csv', 'hotels');
-  const hot = db.get(`hotels`);
-  await hot.createIndex({name: 1});
+  const hot = db.get('hotels');
+  await hot.createIndex({ name: 1 });
   await bulkWriteHandler('../../../FileRead/attractions.csv', 'attractions');
-  const attr = db.get(`attractions`);
-  await attr.createIndex({latitude: 1,longitude: 1});
+  const attr = db.get('attractions');
+  await attr.createIndex({ latitude: 1, longitude: 1 });
   db.close();
 })();

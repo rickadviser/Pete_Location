@@ -1,8 +1,12 @@
 const url = 'localhost:27017/rickadvisor-location';
-const db = require('monk')(url);
+const db = require('monk')(url, {
+  poolSize: 10,
+});
 
 const hotels = db.get('hotels');
 const attractions = db.get('attractions');
+let dbcount = 0;
+
 const getRelativeDistance = (latitude, longitude) => {
   let latLow;
   let latHigh;
@@ -16,25 +20,32 @@ const getRelativeDistance = (latitude, longitude) => {
 };
 module.exports = {
   hotels: {
-    getHotelByName: hotelName => hotels.find({ name: `${hotelName}` }).then(hotel => hotel[0]),
+    getHotelByName: hotelName => hotels.find({ name: `${hotelName}` }).then((hotels) => {
+      dbcount++;
+      return hotels;
+    }),
   },
   attractions: {
     getAttractions: (hotelName, type) => hotels
       .find({ name: `${hotelName}` })
       .then(hotel => hotel[0])
       .then(async (hotel) => {
+        dbcount++;
         const hotelLatitude = hotel.latitude;
         const hotelLongitude = hotel.longitude;
         const [latLow, latHigh, longLow, longHigh] = getRelativeDistance(
           hotelLatitude,
           hotelLongitude,
         );
-        return attractions.find({
-          latitude: { $gte: latLow, $lte: latHigh },
-          longitude: { $gte: longLow, $lte: longHigh },
-          type,
-        });
+        return attractions.find(
+          {
+            latitude: { $gte: latLow, $lte: latHigh },
+            longitude: { $gte: longLow, $lte: longHigh },
+            type,
+          },
+          { fields: { name: 1, latitude: 1, longitude: 1 } },
+        );
       }),
-    getRestaurants: (hotelName) => {},
+    getRestaurants: hotelName => dbcount,
   },
 };
